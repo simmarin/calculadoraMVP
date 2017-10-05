@@ -43,17 +43,19 @@
         android:layout_alignStart="@+id/valor2"
         android:layout_below="@+id/valor2"
         android:layout_marginTop="56dp"
-        android:text="+" />
+        android:text="+"
+        android:onClick="suma"/>
 
     <Button
         android:id="@+id/restabtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="-"
+        android:onClick="resta"
         android:layout_alignBaseline="@+id/sumabtn"
         android:layout_alignBottom="@+id/sumabtn"
-        android:layout_alignEnd="@+id/valor2"
         android:layout_alignRight="@+id/valor2"
-        android:text="-" />
+        android:layout_alignEnd="@+id/valor2" />
 
     <Button
         android:id="@+id/multibtn"
@@ -63,7 +65,8 @@
         android:layout_alignStart="@+id/sumabtn"
         android:layout_below="@+id/sumabtn"
         android:layout_marginTop="23dp"
-        android:text="*" />
+        android:text="*"
+        android:onClick="multiplicacion"/>
 
     <Button
         android:id="@+id/divbtn"
@@ -72,10 +75,11 @@
         android:layout_alignEnd="@+id/restabtn"
         android:layout_alignRight="@+id/restabtn"
         android:layout_alignTop="@+id/multibtn"
-        android:text="/" />
+        android:text="/"
+        android:onClick="division"/>
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/resultMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/multibtn"

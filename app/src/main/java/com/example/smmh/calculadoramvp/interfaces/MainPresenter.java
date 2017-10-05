@@ -5,6 +5,7 @@ package com.example.smmh.calculadoramvp.interfaces;
  */
 
 public interface MainPresenter {
-    void operacion();
-    void errorPresenter();
+    void operacion(String valor1, String valor2,String op);
+    void errorPresenter(String error);
+    void setResult(String result);
 }

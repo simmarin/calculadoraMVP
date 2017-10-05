@@ -5,8 +5,8 @@ package com.example.smmh.calculadoramvp.interfaces;
  */
 
 public interface MainInteractor {
-    void suma();
-    void resta();
-    void multiplicacion();
-    void division();
+    void suma(String valor1,String valor2);
+    void resta(String valor1,String valor2);
+    void multiplicacion(String valor1,String valor2);
+    void division(String valor1,String valor2);
 }

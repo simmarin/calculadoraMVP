@@ -5,6 +5,6 @@ package com.example.smmh.calculadoramvp.interfaces;
  */
 
 public interface MainView {
-    void setResult();
-    void showError();
+    void setResult(String result);
+    void showError(String error);
 }
