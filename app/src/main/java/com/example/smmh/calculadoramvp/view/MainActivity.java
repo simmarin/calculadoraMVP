@@ -11,18 +11,23 @@ import com.example.smmh.calculadoramvp.interfaces.MainPresenter;
 import com.example.smmh.calculadoramvp.interfaces.MainView;
 import com.example.smmh.calculadoramvp.presenter.MainPresenterImpl;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends AppCompatActivity implements MainView{
-private EditText    valor1, valor2,resultMain;
-private MainPresenter presenter;
-    private String s="suma",r="resta",m="multi",d="div";
+    @BindView(R.id.valor1) EditText valor1;
+    @BindView(R.id.valor2) EditText valor2;
+    @BindView(R.id.resultMain) EditText resultMain;
+
+    private MainPresenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        valor1=(EditText) findViewById(R.id.valor1);
-        valor2=(EditText) findViewById(R.id.valor2);
-        resultMain=(EditText) findViewById(R.id.resultMain);
         presenter=new MainPresenterImpl(this);
+        ButterKnife.bind(this);
     }
 
     @Override
@@ -34,18 +39,21 @@ private MainPresenter presenter;
     public void showError(String error) {
         Toast.makeText(MainActivity.this,error,Toast.LENGTH_SHORT).show();
     }
-
-    public void suma(View v){
-        presenter.operacion(valor1.getText().toString(),valor2.getText().toString(),s);
+    @OnClick(R.id.sumabtn)
+    public void suma(){
+        presenter.operacion(valor1.getText().toString(),valor2.getText().toString(),"suma");
     }
-    public void resta(View v){
-        presenter.operacion(valor1.getText().toString(),valor2.getText().toString(),r);
+    @OnClick(R.id.restabtn)
+    public void resta(){
+        presenter.operacion(valor1.getText().toString(),valor2.getText().toString(),"resta");
     }
-    public void multiplicacion(View v){
-        presenter.operacion(valor1.getText().toString(),valor2.getText().toString(),m);
+    @OnClick(R.id.multibtn)
+    public void multiplicacion(){
+        presenter.operacion(valor1.getText().toString(),valor2.getText().toString(),"multi");
     }
-    public void division(View v){
-        presenter.operacion(valor1.getText().toString(),valor2.getText().toString(),d);
+    @OnClick(R.id.divbtn)
+    public void division(){
+        presenter.operacion(valor1.getText().toString(),valor2.getText().toString(),"div");
     }
 
 }
