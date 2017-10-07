@@ -2,14 +2,15 @@ package com.example.smmh.calculadoramvp.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.smmh.calculadoramvp.R;
 import com.example.smmh.calculadoramvp.interfaces.MainPresenter;
 import com.example.smmh.calculadoramvp.interfaces.MainView;
-import com.example.smmh.calculadoramvp.presenter.MainPresenterImpl;
+import com.example.smmh.calculadoramvp.dagger.App;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,14 +20,16 @@ public class MainActivity extends AppCompatActivity implements MainView{
     @BindView(R.id.valor1) EditText valor1;
     @BindView(R.id.valor2) EditText valor2;
     @BindView(R.id.resultMain) EditText resultMain;
-
-    private MainPresenter presenter;
+    @Inject
+    MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        presenter=new MainPresenterImpl(this);
+
+        ((App) getApplication()).getComponent().inject(this);
+
         ButterKnife.bind(this);
     }
 

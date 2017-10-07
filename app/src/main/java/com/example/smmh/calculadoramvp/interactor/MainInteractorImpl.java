@@ -1,19 +1,20 @@
 package com.example.smmh.calculadoramvp.interactor;
 
+import com.example.smmh.calculadoramvp.dagger.App;
 import com.example.smmh.calculadoramvp.interfaces.MainInteractor;
 import com.example.smmh.calculadoramvp.interfaces.MainPresenter;
+
+import javax.inject.Inject;
 
 /**
  * Created by SMMH on 04/10/2017.
  */
 
 public class MainInteractorImpl implements MainInteractor {
-    private MainPresenter presenter;
-    private double result;
 
-    public MainInteractorImpl(MainPresenter presenter) {
-        this.presenter = presenter;
-    }
+    private double result;
+    @Inject
+    MainPresenter presenter;
 
     @Override
     public void suma(String valor1, String valor2) {

@@ -1,6 +1,5 @@
 package com.example.smmh.calculadoramvp.presenter;
 
-import com.example.smmh.calculadoramvp.interactor.MainInteractorImpl;
 import com.example.smmh.calculadoramvp.interfaces.MainInteractor;
 import com.example.smmh.calculadoramvp.interfaces.MainPresenter;
 import com.example.smmh.calculadoramvp.interfaces.MainView;
@@ -13,9 +12,10 @@ public class MainPresenterImpl implements MainPresenter {
     private MainView view;
     private MainInteractor interactor;
 
-    public MainPresenterImpl(MainView view) {
+    @Override
+    public void setView(MainView view)
+    {
         this.view = view;
-        interactor=new MainInteractorImpl(this);
     }
 
     @Override
@@ -44,6 +44,7 @@ public class MainPresenterImpl implements MainPresenter {
         }
 
     }
+
 
     @Override
     public void errorPresenter(String error) {
