@@ -7,8 +7,7 @@ import com.example.smmh.calculadoramvp.interactor.MainInteractorImpl;
  */
 
 public interface MainPresenter {
-    void setView(MainView view);
     void operacion(String valor1, String valor2,String op);
-    void errorPresenter(String error);
-    void setResult(String result);
+    void errorPresenter();
+    void setResult();
 }

@@ -12,45 +12,25 @@ import javax.inject.Inject;
 
 public class MainInteractorImpl implements MainInteractor {
 
-    private double result;
-    @Inject
-    MainPresenter presenter;
+    double result;
+
 
     @Override
-    public void suma(String valor1, String valor2) {
-        if (valor1.equals("") && valor2.equals("")){
-            presenter.errorPresenter("campos vacios");
-        }else {
-            try{
-                result=Double.valueOf(valor1)+Double.valueOf(valor2);
-                presenter.setResult(String.valueOf(result));
-            }catch (Exception e){
-                presenter.errorPresenter(e.getMessage());
-            }
-
-        }
-
+    public double suma(String valor1, String valor2) {
+        result=Double.valueOf(valor1)+Double.valueOf(valor2);
+      return result;
     }
 
     @Override
-    public void resta(String valor1, String valor2) {
-        if (valor1.equals("") && valor2.equals("")){
-            presenter.errorPresenter("campos vacios");
-        }else {
-            try{
-                result=Double.valueOf(valor1)-Double.valueOf(valor2);
-                presenter.setResult(String.valueOf(result));
-            }catch (Exception e){
-                presenter.errorPresenter(e.getMessage());
-            }
-
-        }
+    public double resta(String valor1, String valor2) {
+        result=Double.valueOf(valor1)-Double.valueOf(valor2);
+        return result;
 
     }
 
     @Override
     public void multiplicacion(String valor1, String valor2) {
-        if (valor1.equals("") && valor2.equals("")){
+      /*  if (valor1.equals("") && valor2.equals("")){
             presenter.errorPresenter("campos vacios");
         }else {
             try{
@@ -60,13 +40,13 @@ public class MainInteractorImpl implements MainInteractor {
                 presenter.errorPresenter(e.getMessage());
             }
 
-        }
+        }*/
 
     }
 
     @Override
     public void division(String valor1, String valor2) {
-        if (valor1.equals("") && valor2.equals("")){
+       /* if (valor1.equals("") && valor2.equals("")){
             presenter.errorPresenter("campos vacios");
         }else {
             try{
@@ -77,6 +57,6 @@ public class MainInteractorImpl implements MainInteractor {
             }
 
         }
-
+*/
     }
 }
